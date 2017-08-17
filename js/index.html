@@ -1,0 +1,46 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>Site</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <ul id="tab">
+            <li class="activeTab">Tab 1</li>
+            <li>Tab 2</li>
+            <li>Tab 3</li>
+        </ul>
+        <div id="panel1" class="panel active">
+            item1<br>
+            item1<br>
+            item1<br>
+        </div>
+        <div id="panel2" class="panel">
+            item2<br>
+            item2<br>
+            item2<br>
+        </div>
+        <div id="panel3" class="panel">
+            item3<br>
+            item3<br>
+            item3<br>
+        </div>
+    </div>
+    <div>Sample</div>
+
+    <script>
+        $(function() {
+            $("#tab li").on("click", function() {
+                $(this).siblings(".activeTab").removeClass("activeTab");
+                $(this).addClass("activeTab");
+
+                $("div").find(".active").removeClass("active");
+                $("div").find("#panel" + $(this).text().slice(-1)).addClass("active");
+            });
+        });
+
+    </script>
+</body>
+</html>
